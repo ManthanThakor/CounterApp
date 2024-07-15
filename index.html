@@ -8,6 +8,101 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <style>
+      body {
+        background-color: #1e1e1e;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .card {
+        background-color: #2c2c2c;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-header {
+        background-color: #3c3c3c;
+        border-bottom: 1px solid #444;
+      }
+
+      .btn {
+        border: none;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+      }
+
+      .btn-success {
+        background-color: #28a745;
+      }
+
+      .btn-success:hover {
+        background-color: #218838;
+      }
+
+      .btn-danger {
+        background-color: #dc3545;
+      }
+
+      .btn-danger:hover {
+        background-color: #c82333;
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+      }
+
+      .btn-secondary:hover {
+        background-color: #5a6268;
+      }
+      .glow {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+        animation: glowAnimation 1.5s infinite alternate;
+      }
+
+      @keyframes glowAnimation {
+        from {
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+            0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        to {
+          text-shadow: 0 0 20px rgba(255, 255, 255, 0.7),
+            0 0 30px rgba(255, 255, 255, 0.7);
+        }
+      }
+
+      .button-animate {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: color 0.4s;
+      }
+
+      .button-animate::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%) rotate(45deg);
+        transition: width 0.4s, height 0.4s;
+        z-index: -1;
+      }
+
+      .button-animate:hover::before {
+        width: 0;
+        height: 0;
+      }
+
+      .button-animate:hover {
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <div class="container mt-5">
@@ -15,21 +110,30 @@
         <div class="col-md-6">
           <div class="card text-center">
             <div class="card-header">
-              <h1>Counter App</h1>
+              <h1 class="glow">Counter App</h1>
             </div>
             <div class="card-body">
               <p>
                 This is a simple counter application. Use the buttons to
                 increase, decrease, or reset the counter value.
               </p>
-              <div class="display-4 mb-4" id="counter-value">0</div>
-              <button id="increase-btn" class="btn btn-success btn-lg mx-2">
+              <div class="display-4 mb-4 glow" id="counter-value">0</div>
+              <button
+                id="increase-btn"
+                class="btn btn-success btn-lg mx-2 button-animate"
+              >
                 Increase
               </button>
-              <button id="decrease-btn" class="btn btn-danger btn-lg mx-2">
+              <button
+                id="decrease-btn"
+                class="btn btn-danger btn-lg mx-2 button-animate"
+              >
                 Decrease
               </button>
-              <button id="reset-btn" class="btn btn-secondary btn-lg mx-2">
+              <button
+                id="reset-btn"
+                class="btn btn-secondary btn-lg mx-2 button-animate"
+              >
                 Reset
               </button>
             </div>
